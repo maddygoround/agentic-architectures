@@ -1,0 +1,70 @@
+pkg/architectures/streaming.go
+  s_f962fbb89ea551::t_af5c337ae9dc16 1-135
+pkg/architectures/base.go
+  s_f962fbb89ea551::t_67d8c738ad9e80 11
+  s_939762a7decefe::t_8b943142e56396 1-2,10
+  s_d708785f4bd59c::t_c4855778d3fe91 5
+  s_d708785f4bd59c::t_2ea13e688590e4 3-4,7,12-13,22-25
+  s_f962fbb89ea551::t_4a7f441585610d 26
+  s_f962fbb89ea551::t_7de408f45dc536 6
+  s_f962fbb89ea551::t_9471335903e637 8,14-15,20-21
+  s_f962fbb89ea551::t_6bd331aa270406 27
+  s_f962fbb89ea551::t_6c3280e5df49b8 16-19
+  s_d708785f4bd59c::t_795ed18f148a5b 9
+.gitignore
+  h_612775f5bc6d99 1-2
+pkg/architectures/react.go
+  s_f962fbb89ea551::t_1d9aaf6545b9d2 194-203
+  s_f962fbb89ea551::t_47c4a6ea2e7b10 1-16,19-37,39,42-50,52-56,58-97,99-110,112-147,149-161,165-193,204-225,227-249
+  s_f962fbb89ea551::t_8735b369f8d48a 17-18,38,40-41,51,57,98,111,148,226
+  s_f962fbb89ea551::t_6c3280e5df49b8 162-164
+pkg/architectures/reflection.go
+  s_f962fbb89ea551::t_6c3280e5df49b8 38-40,42
+  s_f962fbb89ea551::t_a8d449994be76a 1-16,18-33,35-37,41,43-50,52,54-60,62-66,68-112,114-129,131-153,155-182,184-206,216-241,243-262
+  s_f962fbb89ea551::t_09be74ec569727 207-210,212-215
+  s_f962fbb89ea551::t_f091444c2b80ae 17,34,51,53,61,67,113,130,154,183,211,242
+go.mod
+  s_d708785f4bd59c::t_3f62a4257d3c34 3,29-30,50,64,85
+  s_d708785f4bd59c::t_5cf35f9c13e21a 9,31-34,36-37,44,46,48-49,51-57,63,65,72-74,78
+  s_939762a7decefe::t_94415ea9662fb6 1-2,4,10,86
+  s_f962fbb89ea551::t_6b14cd45cb3dae 11-28,35,38-43,45,59-62,66-71,75-77,79-84
+  s_d708785f4bd59c::t_16807ff7ca01c5 47,58
+  s_d708785f4bd59c::t_aa225fbbb3c7a0 5-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "27b1c842a7fc559569fa1b9c5b431ffb8fcb821b",
+  "prompts": {},
+  "humans": {
+    "h_612775f5bc6d99": {
+      "author": "maddygoround <m.rathod@xsolla.com>"
+    }
+  },
+  "sessions": {
+    "s_939762a7decefe": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ded34cbd-999b-4fb9-b622-02da8b0d8e51",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "human_author": "maddygoround <m.rathod@xsolla.com>"
+    },
+    "s_d708785f4bd59c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e917c-a753-7243-b0db-0f4df44b321b",
+        "model": "gpt-5.5"
+      },
+      "human_author": "maddygoround <m.rathod@xsolla.com>"
+    },
+    "s_f962fbb89ea551": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e9220-1b8b-7dc0-b9b9-110b94404ae8",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "maddygoround <m.rathod@xsolla.com>"
+    }
+  }
+}
