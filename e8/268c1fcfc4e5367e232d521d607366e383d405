@@ -1,0 +1,44 @@
+pkg/utils/types.go
+  s_d8a106e41161d6::t_3e60f51361a7d4 1-12
+pkg/architectures/react.go
+  s_d8a106e41161d6::t_1fed0d16759717 196
+  s_d8a106e41161d6::t_bc041169b1c3c0 87
+  s_d8a106e41161d6::t_d3343c72ce1299 13
+  s_d8a106e41161d6::t_6f3dc5ce5d0e34 118,155
+  s_d8a106e41161d6::t_1e023a1bcb9c97 189
+pkg/architectures/base.go
+  s_d8a106e41161d6::t_061ffad43cda27 7,11-14
+pkg/utils/streaming.go
+  s_d8a106e41161d6::t_42dc6a2173a99d 31,45,51,59,74,80
+  s_d8a106e41161d6::t_8d3df5364cfaf9 28
+  s_d8a106e41161d6::t_cc30993f80c012 124
+  s_d8a106e41161d6::t_da9a67eb41f28e 1
+  s_d8a106e41161d6::t_2b6ff766865864 72
+  s_d8a106e41161d6::t_e3f7dfec904a33 11
+  h_612775f5bc6d99 2-10,12-27,29-30,32-44,46-50,52-58,60-71,73,75-79,81-123,125-135
+pkg/architectures/reflection.go
+  s_d8a106e41161d6::t_354b4f8806dbdf 96,205
+  s_d8a106e41161d6::t_3630bd1eaba8ef 137,161,190
+  s_d8a106e41161d6::t_5c5e3a5dd8875a 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "e8268c1fcfc4e5367e232d521d607366e383d405",
+  "prompts": {},
+  "humans": {
+    "h_612775f5bc6d99": {
+      "author": "maddygoround <m.rathod@xsolla.com>"
+    }
+  },
+  "sessions": {
+    "s_d8a106e41161d6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c68f4c9-6158-4b9a-aebc-90e20440e5a4",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "human_author": "maddygoround <m.rathod@xsolla.com>"
+    }
+  }
+}
