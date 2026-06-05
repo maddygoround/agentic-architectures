@@ -1,4 +1,4 @@
-package architectures
+package utils
 
 import (
 	"context"
@@ -8,7 +8,7 @@ import (
 	"github.com/cloudwego/eino/schema"
 )
 
-func streamHasToolCalls(_ context.Context, sr *schema.StreamReader[*schema.Message]) (bool, error) {
+func StreamHasToolCalls(_ context.Context, sr *schema.StreamReader[*schema.Message]) (bool, error) {
 	defer sr.Close()
 
 	for {
@@ -25,7 +25,7 @@ func streamHasToolCalls(_ context.Context, sr *schema.StreamReader[*schema.Messa
 	}
 }
 
-func decorateMessageStream(
+func DecorateMessageStream(
 	stream *schema.StreamReader[*schema.Message],
 	eventType string,
 	emit func(StreamEvent),
@@ -69,7 +69,7 @@ func decorateMessageStream(
 	})
 }
 
-func decorateToolResultsStream(
+func DecorateToolResultsStream(
 	stream *schema.StreamReader[[]*schema.Message],
 	emit func(StreamEvent),
 ) *schema.StreamReader[[]*schema.Message] {
@@ -121,7 +121,7 @@ func formatToolResult(msg *schema.Message) string {
 	}
 }
 
-func lastAssistantContent(messages []*schema.Message) string {
+func LastAssistantContent(messages []*schema.Message) string {
 	for i := len(messages) - 1; i >= 0; i-- {
 		msg := messages[i]
 		if msg == nil {

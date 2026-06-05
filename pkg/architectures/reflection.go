@@ -10,6 +10,7 @@ import (
 	"github.com/cloudwego/eino/components/model"
 	"github.com/cloudwego/eino/compose"
 	"github.com/cloudwego/eino/schema"
+	"agentic-architectures/pkg/utils"
 )
 
 // Reflection improves a draft by critiquing and revising it.
@@ -92,7 +93,7 @@ func (r *Reflection) Stream(ctx context.Context, task string) (*schema.StreamRea
 
 		final := strings.TrimSpace(state.Final)
 		if final == "" {
-			final = strings.TrimSpace(lastAssistantContent(state.Messages))
+			final = strings.TrimSpace(utils.LastAssistantContent(state.Messages))
 		}
 
 		sw.Send(StreamEvent{
@@ -133,7 +134,7 @@ func (r *Reflection) buildRunnable(
 			return messages, nil
 		}),
 		compose.WithStreamStatePostHandler(func(ctx context.Context, out *schema.StreamReader[*schema.Message], state *reflectionState) (*schema.StreamReader[*schema.Message], error) {
-			return decorateMessageStream(out, "draft", emit, nil), nil
+			return utils.DecorateMessageStream(out, "draft", emit, nil), nil
 		}),
 	); err != nil {
 		return nil, nil, err
@@ -157,7 +158,7 @@ func (r *Reflection) buildRunnable(
 			return messages, nil
 		}),
 		compose.WithStreamStatePostHandler(func(ctx context.Context, out *schema.StreamReader[*schema.Message], state *reflectionState) (*schema.StreamReader[*schema.Message], error) {
-			return decorateMessageStream(out, "critique", emit, func(full string, last *schema.Message, _ bool) {
+			return utils.DecorateMessageStream(out, "critique", emit, func(full string, last *schema.Message, _ bool) {
 				parsedScore, parsedCritique := parseReflectionCritique(full)
 				state.Score = parsedScore
 				state.Critique = parsedCritique
@@ -186,7 +187,7 @@ func (r *Reflection) buildRunnable(
 			return messages, nil
 		}),
 		compose.WithStreamStatePostHandler(func(ctx context.Context, out *schema.StreamReader[*schema.Message], state *reflectionState) (*schema.StreamReader[*schema.Message], error) {
-			return decorateMessageStream(out, "revision", emit, func(full string, last *schema.Message, _ bool) {
+			return utils.DecorateMessageStream(out, "revision", emit, func(full string, last *schema.Message, _ bool) {
 				state.Iteration++
 				_ = full
 				_ = last
@@ -201,7 +202,7 @@ func (r *Reflection) buildRunnable(
 	}
 
 	if err := graph.AddLambdaNode("finalize", compose.InvokableLambda(func(ctx context.Context, _ *schema.Message) (string, error) {
-		state.Final = strings.TrimSpace(lastAssistantContent(state.Messages))
+		state.Final = strings.TrimSpace(utils.LastAssistantContent(state.Messages))
 		return state.Final, nil
 	}, compose.WithLambdaType("finalize"))); err != nil {
 		return nil, nil, err

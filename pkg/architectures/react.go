@@ -10,6 +10,7 @@ import (
 	"github.com/cloudwego/eino/components/tool"
 	"github.com/cloudwego/eino/compose"
 	"github.com/cloudwego/eino/schema"
+	"agentic-architectures/pkg/utils"
 )
 
 // ReAct alternates explicit thinking and acting with a graph.
@@ -83,7 +84,7 @@ func (r *ReAct) Stream(ctx context.Context, task string) (*schema.StreamReader[S
 		sw.Send(StreamEvent{
 			Type: "result",
 			Result: &ArchitectureResult{
-				Output: strings.TrimSpace(lastAssistantContent(state.Messages)),
+				Output: strings.TrimSpace(utils.LastAssistantContent(state.Messages)),
 			},
 		}, nil)
 	}()
@@ -114,7 +115,7 @@ func (r *ReAct) buildRunnable(
 			return messages, nil
 		}),
 		compose.WithStreamStatePostHandler(func(ctx context.Context, out *schema.StreamReader[*schema.Message], state *reactState) (*schema.StreamReader[*schema.Message], error) {
-			return decorateMessageStream(out, "thinking", emit, nil), nil
+			return utils.DecorateMessageStream(out, "thinking", emit, nil), nil
 		}),
 	); err != nil {
 		return nil, nil, err
@@ -151,7 +152,7 @@ func (r *ReAct) buildRunnable(
 			return messages, nil
 		}),
 		compose.WithStreamStatePostHandler(func(ctx context.Context, out *schema.StreamReader[*schema.Message], state *reactState) (*schema.StreamReader[*schema.Message], error) {
-			return decorateMessageStream(out, "stream_chunk", emit, func(full string, last *schema.Message, sawToolCalls bool) {
+			return utils.DecorateMessageStream(out, "stream_chunk", emit, func(full string, last *schema.Message, sawToolCalls bool) {
 				if sawToolCalls {
 					return
 				}
@@ -185,14 +186,14 @@ func (r *ReAct) buildRunnable(
 				return input, nil
 			}),
 			compose.WithStreamStatePostHandler(func(ctx context.Context, out *schema.StreamReader[[]*schema.Message], state *reactState) (*schema.StreamReader[[]*schema.Message], error) {
-				return decorateToolResultsStream(out, emit), nil
+				return utils.DecorateToolResultsStream(out, emit), nil
 			}),
 		); err != nil {
 			return nil, nil, err
 		}
 
 		if err := graph.AddBranch("act", compose.NewStreamGraphBranch(func(ctx context.Context, sr *schema.StreamReader[*schema.Message]) (string, error) {
-			hasToolCalls, err := streamHasToolCalls(ctx, sr)
+			hasToolCalls, err := utils.StreamHasToolCalls(ctx, sr)
 			if err != nil {
 				return "", err
 			}

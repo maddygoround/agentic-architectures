@@ -4,20 +4,14 @@ import (
 	"context"
 
 	"github.com/cloudwego/eino/schema"
+	"agentic-architectures/pkg/utils"
 )
 
-// ArchitectureResult is the standardized return type for all architectures.
-type ArchitectureResult struct {
-	Output string `json:"output"`
-}
-
 // StreamEvent is emitted by architecture.Stream.
-type StreamEvent struct {
-	Type    string              `json:"type"`
-	Content string              `json:"content,omitempty"`
-	Result  *ArchitectureResult `json:"result,omitempty"`
-	Error   string              `json:"error,omitempty"`
-}
+type StreamEvent = utils.StreamEvent
+
+// ArchitectureResult is the standardized return type for all architectures.
+type ArchitectureResult = utils.ArchitectureResult
 
 // Architecture is the small extension point for each architecture demo.
 type Architecture interface {
