@@ -4,6 +4,7 @@ go 1.23.0
 
 require (
 	github.com/cloudwego/eino v0.9.2
+	github.com/cloudwego/eino-ext/components/model/claude v0.1.19
 	github.com/spf13/cobra v1.10.2
 )
 
@@ -32,7 +33,6 @@ require (
 	github.com/bytedance/sonic v1.15.0 // indirect
 	github.com/bytedance/sonic/loader v0.5.0 // indirect
 	github.com/cloudwego/base64x v0.1.6 // indirect
-	github.com/cloudwego/eino-ext/components/model/claude v0.1.19 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/eino-contrib/jsonschema v1.0.3 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
