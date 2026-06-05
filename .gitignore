@@ -1,4 +1,5 @@
 *.md
+!README.md
 *.txt
 .vscode/
 .idea/
