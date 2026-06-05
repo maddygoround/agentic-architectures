@@ -1,0 +1,26 @@
+.gitignore
+  h_612775f5bc6d99 2
+README.md
+  s_d8a106e41161d6::t_77ba010c7f3feb 1-111
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "675d18d0a747a4484d42866061cb4ea230696567",
+  "prompts": {},
+  "humans": {
+    "h_612775f5bc6d99": {
+      "author": "maddygoround <m.rathod@xsolla.com>"
+    }
+  },
+  "sessions": {
+    "s_d8a106e41161d6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c68f4c9-6158-4b9a-aebc-90e20440e5a4",
+        "model": "claude-haiku-4-5-20251001"
+      },
+      "human_author": "maddygoround <m.rathod@xsolla.com>"
+    }
+  }
+}
